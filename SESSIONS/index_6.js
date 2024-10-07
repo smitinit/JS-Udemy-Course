@@ -136,3 +136,18 @@ document
 document.querySelector('.clrstr').addEventListener('click', function () {
   localStorage.clear();
 });
+
+const a = function (num) {
+  let count = num;
+  console.log(`a: ${count}`);
+  return function (num) {
+    count += num;
+    console.log(`k: ${count}`);
+  };
+};
+
+// const b = a(10);
+// b(12);
+// b(12);
+// b(12);
+// b(12);
