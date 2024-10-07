@@ -1,0 +1,83 @@
+<html>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guess It</title>
+  <head>
+    <script src="project_1.js" defer></script>
+    <style>
+      body {
+        margin: 0;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        box-sizing: border-box;
+        background-color: rgb(45, 45, 45);
+        color: aliceblue;
+        font-family: serif;
+        font-size: 2rem;
+      }
+      input {
+        background-color: transparent;
+        color: aliceblue;
+        border: 1px solid white;
+        font-size: 4rem;
+        width: 200px;
+        text-align: center;
+        height: 5rem;
+        padding: 10px;
+      }
+      button {
+        background-color: aliceblue;
+        color: rgb(45, 45, 45);
+        padding: 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+        border: none;
+      }
+      h1 {
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="again_btn">Again</button>
+    <h2 class="title" style="text-align: center">Guess My Number!</h2>
+    <h5 class="title" style="text-align: center">(Between 1 - 20)</h5>
+    <h2 style="text-align: center">
+      <span
+        style="padding: 1rem; background-color: aliceblue; color: black"
+        class="number"
+        >?</span
+      >
+    </h2>
+
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+        justify-content: center;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        "
+      >
+        <input type="number" class="inpt" />
+        <button class="check_btn">Check!</button>
+      </div>
+      <div style="display: flex; flex-direction: column; text-align: center">
+        <p class="message">Start guessing...</p>
+        <div>
+          <p>💯 Score: <span class="score">10</span></p>
+          <p>🥇 Highscore: <span class="highscore">0</span></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
