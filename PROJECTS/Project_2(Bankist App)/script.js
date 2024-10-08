@@ -73,9 +73,12 @@ const createUserName = (accounts) =>
   );
 createUserName(accounts);
 
-const displayMovements = function (movement) {
+const displayMovements = function (movement, sort = false) {
   containerMovements.innerHTML = "";
-  movement.forEach((el, i) => {
+
+  const sortedmovs = sort ? movement.slice().sort((a, b) => a - b) : movement;
+
+  sortedmovs.forEach((el, i) => {
     const type = el > 0 ? "deposit" : "withdrawal";
     let html = `<div class="movements__row">
           <div class="movements__type movements__type--${type}">${
@@ -191,9 +194,18 @@ btnLoan.addEventListener("click", function (e) {
   }
   inputLoanAmount.value = "";
 });
+let sortedState = false;
+btnSort.addEventListener("click", function (e) {
+  e.preventDefault();
+  displayMovements(selectedAccount.movements, !sortedState);
+  sortedState = !sortedState;
+});
 
-const numbers = [1, 2, 3, , 5, 4, 75, 785, 67, 563, 85, 68, 8, 647, 8];
-console.log(numbers.sort());
+const numbers = [1, 2, 3, 5, 4, 75, 785, 67, 563, 85, 68, 8, 647, 8];
+console.log(numbers.sort((a, b) => (a > b ? -1 : 1)));
+console.log(numbers.sort((a, b) => a - b));
+console.log(numbers.sort((a, b) => -a + b));
+
 // LECTURES
 
 // const currencies = new Map([
