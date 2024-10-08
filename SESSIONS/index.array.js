@@ -7,6 +7,24 @@ setInterval(() => {
   i === 4 && (i = 0);
 }, N);
 
+function mouseXY(Event) {
+  let x = Event.pageX;
+  let y = Event.pageY;
+  let MAX = 30;
+  document.querySelector('#xfield').value = x;
+  document.querySelector('#yfield').value = y;
+  // console.log(window.visualViewport.width, window.visualViewport.height);
+  x >= window.visualViewport.width - MAX ||
+  y >= window.visualViewport.height - MAX ||
+  x <= MAX ||
+  y <= MAX
+    ? document.querySelector('.withmouse').classList.add('visible')
+    : document.querySelector('.withmouse').classList.remove('visible');
+
+  document.querySelector('.withmouse').style.top = `${y}px`;
+  document.querySelector('.withmouse').style.left = `${x}px`;
+}
+document.querySelector('body').addEventListener('mousemove', mouseXY);
 //////////////////////////////////ARRAYS///////////////////
 
 let arr = ['a', 'b', 'c', 'd', 'e', 'f'];
@@ -35,7 +53,8 @@ for (const [i, movement] of movements.entries()) {
   );
 }
 console.log(`\n----FOR EACH----\n`);
-movements.forEach((el, i) => {
+movements.forEach((el, i, arr) => {
+  // arr passes whole array //i = key //el = each values
   console.log(
     el > 0
       ? `${el} at position ${i} is positive`

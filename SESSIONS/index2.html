@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FUNCTION</title>
     <style>
+      body{
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+      }
       .spn {
         font-size: 5rem;
         font-weight: bolder;
@@ -17,6 +22,37 @@
         text-align: center;
         justify-content: center;
       }
+      .container{
+        display: flex;
+        gap:2rem;
+      }
+      .inpts{
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        width: fit-content;
+        gap: 0.6rem;
+      }
+      .inpts>input{
+        width: 3rem;
+        text-align: center;
+      }
+      .withmouse{
+        height: 1rem;
+        width: 1rem;
+        filter: blur(2px);
+        background-color: rgba(43, 255, 0, 0.411);
+        border-radius: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-70%,-70%);
+        z-index: 1000;
+      }
+      .visible{
+        visibility: hidden;
+      }
       </style>
     <!-- <script src="index_6.js" defer></script> -->
     <script src="index.array.js" defer></script>
@@ -24,7 +60,21 @@
   <bry>
     <button class="poll">Click for poll</button>
     <button class="clrstr">Clear store</button><br/><hr>
-    <span class="spn">--</span>
-    <small>Terminal loading..</small>
+    <div class="container">
+      <div>
+
+        <span class="spn">--</span>
+        <small>Terminal loading..</small>
+      </div>
+      <div class="inpts">
+
+        x:<input type="text" disabled id="xfield">
+        y:<input type="text" disabled id="yfield">
+        <small>Cords..</small>
+
+      </div>
+    </div>
+
+    <div class="withmouse"></div>
   </body>
 </html>
