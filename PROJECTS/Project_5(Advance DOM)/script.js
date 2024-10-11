@@ -136,6 +136,22 @@ const headerObserver = new IntersectionObserver(stickNav, {
   rootMargin: `-${navHeight}px`,
 });
 headerObserver.observe(header);
+
+const allSections = document.querySelectorAll('.section');
+const revealSecrion = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+};
+const sectionObserver = new IntersectionObserver(revealSecrion, {
+  root: null,
+  threshold: 0.15,
+});
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+});
 /*
 // const allSections = document.querySelectorAll('.section');
 // console.log(allSections);
