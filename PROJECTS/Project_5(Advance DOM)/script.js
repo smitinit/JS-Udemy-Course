@@ -87,6 +87,21 @@ tabContainer.addEventListener('click', function (e) {
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
     .classList.add('operations__content--active');
 });
+const handleFade = (e, opacity) => {
+  if (e.target.classList.contains('nav__link')) {
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+    siblings.forEach(el => {
+      if (el !== link) el.style.opacity = opacity;
+    });
+    logo.style.opacity = opacity;
+  }
+};
+
+const navbar = document.querySelector('.nav');
+navbar.addEventListener('mouseover', e => handleFade(e, 0.5));
+navbar.addEventListener('mouseout', e => handleFade(e, 1));
 /*
 // const allSections = document.querySelectorAll('.section');
 // console.log(allSections);
