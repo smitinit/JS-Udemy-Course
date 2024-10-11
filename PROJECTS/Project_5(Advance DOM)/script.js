@@ -51,17 +51,26 @@ btnScrollTo.addEventListener('click', e => {
   section1.scrollIntoView({ behavior: 'smooth' }); //new
 });
 
-document.querySelector('.nav__link').addEventListener('click', function (e) {
-  this.style.color = 'red';
-});
+// document.querySelectorAll('.nav__link').forEach(el => { // // /  / // / / // not a good method
+//   el.addEventListener('click', function (e) {
+//     e.preventDefault();
+//     const id = this.getAttribute('href');
+//     console.log(id);
 
-// const h1 = document.querySelector('h1');
-// h1.addEventListener('mouseenter', e => {
-//   alert('sdfds');
+//     document.querySelector(id).scrollIntoView({ behavior: 'smooth' }); //new
+//   });
 // });
 
-/*
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  // hard advance!!
+  if (e.target.classList.contains('nav__link')) {
+    e.preventDefault();
+    const id = e.target.getAttribute('href');
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  }
+});
 
+/*
 // const allSections = document.querySelectorAll('.section');
 // console.log(allSections);
 // console.log(document.getElementsByTagName('button'));
@@ -88,6 +97,8 @@ document
 message.style.backgroundColor = '#37383d';
 
 // document.documentElement.style.setProperty('--color-primary', 'orangered');
-
-
 */
+
+// const h1 = document.querySelector('h1');
+// h1.closest('.header').style.background = 'var( --gradient-secondary)';
+// h1.ne;
