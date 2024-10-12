@@ -223,6 +223,17 @@ slider();
 
 // ------------------------------------------------
 //lecture
+
+// document.addEventListener('DOMContentLoaded', function (e) {
+//   console.log('ss');
+// });
+
+// window.addEventListener('beforeunload', function (e) {
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = 'message';
+// });
+
 //snippets
 
 // function(e){}
