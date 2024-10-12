@@ -1,14 +1,19 @@
 'use strict';
-
-///////////////////////////////////////
-
-// Modal window
+//dom selectors
 
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+const tabs = document.querySelectorAll('.operations__tab');
+const tabContainer = document.querySelector('.operations__tab-container');
+const tabContent = document.querySelectorAll('.operations__content');
+const header = document.querySelector('.header');
+const navbar = document.querySelector('.nav');
 
+// Modal window
 const openModal = function (e) {
   e.preventDefault();
   modal.classList.remove('hidden');
@@ -30,10 +35,6 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
-
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-
-const section1 = document.querySelector('#section--1');
 
 btnScrollTo.addEventListener('click', e => {
   // const slcords = section1.getBoundingClientRect();
@@ -70,10 +71,6 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   }
 });
 
-const tabs = document.querySelectorAll('.operations__tab');
-const tabContainer = document.querySelector('.operations__tab-container');
-const tabContent = document.querySelectorAll('.operations__content');
-
 tabContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.operations__tab');
   if (!clicked) return;
@@ -99,30 +96,11 @@ const handleFade = (e, opacity) => {
   }
 };
 
-const navbar = document.querySelector('.nav');
 navbar.addEventListener('mouseover', e => handleFade(e, 0.5));
 navbar.addEventListener('mouseout', e => handleFade(e, 1));
 
-// const initialCoords = section1.getBoundingClientRect();
-// console.log(initialCoords);
-// window.addEventListener('scroll', function () {
-//   console.log(window.scrollY);
-//   if (this.window.scrollY > initialCoords.top) navbar.classList.add('sticky');
-//   else navbar.classList.remove('sticky');
-// });
-// const obsCallBack = function (entries, observer) {
-//   entries.forEach(entry => {
-//     console.log(entry);
-//   });
-// };
-// const obsOptions = {
-//   root: null,
-//   threshold: [0, 0.2],
-// };
-// const observer = new IntersectionObserver(obsCallBack, obsOptions);
-// observer.observe(section1);
+//intersection API
 
-const header = document.querySelector('.header');
 const navHeight = navbar.getBoundingClientRect().height;
 const stickNav = function (entries) {
   const [entry] = entries;
@@ -153,6 +131,7 @@ allSections.forEach(function (section) {
   sectionObserver.observe(section);
 });
 
+//image blur
 const imgTargets = document.querySelectorAll('img[data-src]');
 
 const loadImg = (entries, observer) => {
@@ -171,65 +150,79 @@ const imgObserver = new IntersectionObserver(loadImg, {
 });
 imgTargets.forEach(img => imgObserver.observe(img));
 
-const slides = document.querySelectorAll('.slide');
-const btnlft = document.querySelector('.slider__btn--left');
-const btnrgt = document.querySelector('.slider__btn--right');
-const dots = document.querySelector('.dots');
+const slider = function () {
+  // dom selection
+  const slides = document.querySelectorAll('.slide');
+  const btnlft = document.querySelector('.slider__btn--left');
+  const btnrgt = document.querySelector('.slider__btn--right');
+  const dots = document.querySelector('.dots');
 
-let currentSlide = 0;
-const maxSlide = slides.length;
+  //global variables
+  let currentSlide = 0;
+  const maxSlide = slides.length;
 
-const createDots = function () {
-  slides.forEach((_, i) =>
-    dots.insertAdjacentHTML(
-      'beforeend',
-      `<button class= "dots__dot" data-slide="${i}"></button>`
-    )
-  );
+  //base functions
+  const createDots = function () {
+    slides.forEach((_, i) =>
+      dots.insertAdjacentHTML(
+        'beforeend',
+        `<button class= "dots__dot" data-slide="${i}"></button>`
+      )
+    );
+  };
+  const activateDots = function (slide) {
+    document
+      .querySelectorAll('.dots__dot')
+      .forEach(dot => dot.classList.remove('dots__dot--active'));
+
+    document
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add('dots__dot--active');
+  };
+  const goToSlide = function (slide) {
+    slides.forEach(
+      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+    );
+  };
+  const nextSlide = function () {
+    currentSlide === maxSlide - 1 ? (currentSlide = 0) : currentSlide++;
+    goToSlide(currentSlide);
+    activateDots(currentSlide);
+  };
+  const preSlide = function () {
+    currentSlide === 0 ? (currentSlide = maxSlide - 1) : currentSlide--;
+    goToSlide(currentSlide);
+    activateDots(currentSlide);
+  };
+
+  //starting funtion
+  const init = function () {
+    goToSlide(0);
+    createDots();
+    activateDots(0);
+  };
+  init();
+
+  //listeners
+  btnrgt.addEventListener('click', nextSlide);
+  btnlft.addEventListener('click', preSlide);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') preSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+  });
+
+  dots.addEventListener('click', function (e) {
+    if (e.target.classList.contains('dots__dot')) {
+      const { slide } = e.target.dataset;
+      goToSlide(slide);
+      activateDots(slide);
+    }
+  });
 };
-createDots();
-const goToSlide = function (slide) {
-  slides.forEach(
-    (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
-  );
-};
-const activateDots = function (slide) {
-  document
-    .querySelectorAll('.dots__dot')
-    .forEach(dot => dot.classList.remove('dots__dot--active'));
+slider();
 
-  document
-    .querySelector(`.dots__dot[data-slide="${slide}"]`)
-    .classList.add('dots__dot--active');
-};
-goToSlide(0);
-activateDots(0);
-const nextSlide = function () {
-  currentSlide === maxSlide - 1 ? (currentSlide = 0) : currentSlide++;
-  goToSlide(currentSlide);
-  activateDots(currentSlide);
-};
-const preSlide = function () {
-  currentSlide === 0 ? (currentSlide = maxSlide - 1) : currentSlide--;
-  goToSlide(currentSlide);
-  activateDots(currentSlide);
-};
-
-btnrgt.addEventListener('click', nextSlide);
-btnlft.addEventListener('click', preSlide);
-document.addEventListener('keydown', function (e) {
-  if (e.key === 'ArrowLeft') preSlide();
-  if (e.key === 'ArrowRight') nextSlide();
-});
-
-dots.addEventListener('click', function (e) {
-  if (e.target.classList.contains('dots__dot')) {
-    const { slide } = e.target.dataset;
-    goToSlide(slide);
-    // activateDots(slide);
-  }
-});
-
+// ------------------------------------------------
+//lecture
 //snippets
 
 // function(e){}
@@ -269,3 +262,21 @@ message.style.backgroundColor = '#37383d';
 // const h1 = document.querySelector('h1');
 // h1.closest('.header').style.background = 'var( --gradient-secondary)';
 // h1.ne;
+// const initialCoords = section1.getBoundingClientRect();
+// console.log(initialCoords);
+// window.addEventListener('scroll', function () {
+//   console.log(window.scrollY);
+//   if (this.window.scrollY > initialCoords.top) navbar.classList.add('sticky');
+//   else navbar.classList.remove('sticky');
+// });
+// const obsCallBack = function (entries, observer) {
+//   entries.forEach(entry => {
+//     console.log(entry);
+//   });
+// };
+// const obsOptions = {
+//   root: null,
+//   threshold: [0, 0.2],
+// };
+// const observer = new IntersectionObserver(obsCallBack, obsOptions);
+// observer.observe(section1);
