@@ -42,3 +42,5 @@ console.log(Person.prototype.isPrototypeOf(Person));
 
 Person.prototype.ishuman = true;
 console.log(smit.ishuman, alice.ishuman, jack.ishuman);
+console.log(smit.hasOwnProperty('calcAge'));
+console.log(Object.prototype);
