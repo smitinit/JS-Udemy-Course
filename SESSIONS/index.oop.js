@@ -277,6 +277,7 @@ console.log(bmw);
 
 //with classes and this is ez af
 
+/** 
 class Car {
   make = '';
   speed = 0;
@@ -295,6 +296,7 @@ class Car {
 }
 
 class EV extends Car {
+  #charge;
   constructor(make, speed, charge) {
     super(make, speed); // *always need to happens first
     this.charge = charge;
@@ -302,6 +304,7 @@ class EV extends Car {
 
   chargeBattery = function (charge) {
     this.charge = charge;
+    return this;
   };
 
   accelerate = function () {
@@ -312,6 +315,7 @@ class EV extends Car {
         this.charge ? `with charge of ${this.charge}` : ''
       }`
     );
+    return this;
   };
   brake = function () {
     this.speed++;
@@ -320,14 +324,13 @@ class EV extends Car {
         this.charge ? `with charge of ${this.charge}` : ''
       }`
     );
+    return this;
   };
 }
 
-const bmw = new EV('BMW', 120, 90);
-bmw.accelerate();
-bmw.brake();
-bmw.accelerate();
-console.log(bmw);
+const bmw = new EV('BMW', 120, 40);
+bmw.accelerate().brake().chargeBattery(60).accelerate();
+*/
 
 /*
 class Amount {
