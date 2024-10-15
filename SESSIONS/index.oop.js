@@ -1,4 +1,7 @@
 'use strict';
+
+//ES6 CLASSES SUMMARY END -> SECTION 14 227 7:00
+
 //                     OOP                         //
 // THIS HAPPENS BEHIND THE SCENES //
 //1. new {} is created
@@ -273,8 +276,10 @@ console.log(bmw);
 */
 
 //with classes and this is ez af
-/*
+
 class Car {
+  make = '';
+  speed = 0;
   constructor(make, speed) {
     this.make = make;
     this.speed = speed;
@@ -291,7 +296,7 @@ class Car {
 
 class EV extends Car {
   constructor(make, speed, charge) {
-    super(make, speed); //always need to happens first
+    super(make, speed); // *always need to happens first
     this.charge = charge;
   }
 
@@ -322,15 +327,14 @@ const bmw = new EV('BMW', 120, 90);
 bmw.accelerate();
 bmw.brake();
 bmw.accelerate();
-
 console.log(bmw);
-*/
 
+/*
 class Amount {
   // Public fields (instances)
   locale = navigator.language;
 
-  // Private Fields
+  //Private Fields
   #movements = []; // # makes it private (syntax)
   #pin;
 
@@ -349,9 +353,11 @@ class Amount {
   }
   deposit(val) {
     this.#movements.push(val);
+    return this; //this is for chaining methods
   }
   withdraw(val) {
     this.deposit(-val);
+    return this; //this is for chaining methods
   }
   requestLoan(val) {
     if (this.#approveLoan) {
@@ -360,15 +366,17 @@ class Amount {
     }
   }
 
-  //private methods not implemented in chrome i think so
+  /// private methods not implemented in chrome i think so
   #approveLoan(val) {
     return true;
   }
+
+  ///similarly static works only on Account not  instances!
 }
 
 const acc1 = new Amount('Smit', 'INR', 5555);
 
-// all of them can be used out side of class including approveLoan and pin etc b ut it should be not so we use '_' to know it is private not the actual method just notation...
+/// all of them can be used out side of class including approveLoan and pin etc b ut it should be not so we use '_' to know it is private not the actual method just notation...
 
 acc1.deposit(100);
 
@@ -381,4 +389,29 @@ console.log(acc1.getMovements());
 console.log(acc1);
 
 //ENCAPSULATION
-//private class fields and methods
+//private class fields and methods up all above
+
+//chaining methods
+
+acc1.deposit(323).deposit(32).withdraw(323); //return this addition in methods
+
+// EXAMPLE ON GETTER AND CHAINIG
+/*
+class F {
+  constructor(n, a) {
+    this.n = n;
+    this.a = a;
+  }
+  calcBD() {
+    console.log(`Born in ${2023 - this.a}`);
+    return this;
+  }
+  get greet() { //  static can be used here 
+    console.log(`Hello, ${this.n}`);
+    return this;
+  }
+}
+
+const jack = new F('Jack', 40);
+jack.greet.calcBD(); // chaning example
+*/
