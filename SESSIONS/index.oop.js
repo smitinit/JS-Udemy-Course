@@ -97,6 +97,7 @@ console.log(movements.findDepositAndWithdrawal().withdraw);
 
 */
 
+/*
 const Car = function (make, speed) {
   this.speed = speed;
   this.make = make;
@@ -141,8 +142,9 @@ Person.prototype.greet = function () {
 // smit.calcAge;
 // console.log(smit);
 // smit.greet();
-
+*/
 // ---------------------------------GETTER SETTER----------------------------
+/*
 const accc = {
   movements: [234, 354, 64576, 567],
   owner: 'smit',
@@ -159,6 +161,7 @@ const accc = {
     this.movements.push(movement);
   },
 };
+*/
 
 // console.log(accc.latest); //getter
 
@@ -171,3 +174,211 @@ const accc = {
 // console.log(accc.latest); //getter
 
 // console.log(accc.latestGet()); //normal get
+
+//challenge 1
+
+/*
+class Carr {
+  constructor(type, speed) {
+    this.type = type;
+    this.speed = speed;
+  }
+  get speedUS() {
+    console.log(this.speed / 1.6 + 'mi/h');
+    return this.speed / 1.6;
+  }
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+    console.log(this.speed + 'km/h');
+  }
+  accelerate() {
+    this.speed += 10;
+    console.log(this.speed + 'km/h');
+  }
+  brake() {
+    this.speed -= 5;
+    console.log(this.speed + 'km/h');
+  }
+}
+
+const zen = new Carr('Ciaz', 100);
+// zen.speedUS;
+// zen.speedUS = 100;
+// zen.accelerate();
+*/
+/*
+const PersonDetails = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+const Student = function (firstName, birthYear, course) {
+  // this.firstname = firstname;
+  // this.birthYear = birthYear;
+  PersonDetails.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+//linking prototype
+Student.prototype = Object.create(PersonDetails.prototype);
+
+Student.prototype.intruduce = function () {
+  console.log(`My name is ${this.firstName} and i study ${this.course}`);
+};
+
+const alice = new Student('Alice', 19, 'BSC-IT');
+console.log(alice);
+alice.intruduce();
+console.log(alice.__proto__);
+console.log(alice.__proto__.__proto__);
+*/
+/*
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+Car.prototype.accelerate = function () {
+  this.speed += 10;
+  console.log(`Speed is ${this.speed}`);
+};
+Car.prototype.brake = function () {
+  this.speed -= 10;
+  console.log(`Speed is ${this.speed}`);
+};
+
+const EV = function (make, speed, charge) {
+  Car.call(this, make, speed);
+  this.charge = charge;
+};
+
+EV.prototype = Object.create(Car.prototype); //linking prototype w car
+
+EV.prototype.chargeBattery = function (charge) {
+  this.charge = charge;
+};
+EV.prototype.accelerate = function () {
+  //this is used as it comes first in chain
+  this.speed++;
+  this.charge--;
+  console.log(`Speed is ${this.speed} and charge is ${this.charge}`);
+};
+const bmw = new EV('BMW', 120, 90);
+bmw.chargeBattery(100);
+bmw.brake();
+bmw.accelerate();
+bmw.accelerate();
+bmw.accelerate();
+console.log(bmw);
+*/
+
+//with classes and this is ez af
+/*
+class Car {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+  accelerate = function () {
+    this.speed += 10;
+    console.log(`Speed is ${this.speed}`);
+  };
+  brake = function () {
+    this.speed -= 10;
+    console.log(`Speed is ${this.speed}`);
+  };
+}
+
+class EV extends Car {
+  constructor(make, speed, charge) {
+    super(make, speed); //always need to happens first
+    this.charge = charge;
+  }
+
+  chargeBattery = function (charge) {
+    this.charge = charge;
+  };
+
+  accelerate = function () {
+    this.speed++;
+    this.charge--;
+    console.log(
+      `Speed accelerated and is ${this.speed} ${
+        this.charge ? `with charge of ${this.charge}` : ''
+      }`
+    );
+  };
+  brake = function () {
+    this.speed++;
+    console.log(
+      `Speed decelerated and is ${this.speed} ${
+        this.charge ? `with charge of ${this.charge}` : ''
+      }`
+    );
+  };
+}
+
+const bmw = new EV('BMW', 120, 90);
+bmw.accelerate();
+bmw.brake();
+bmw.accelerate();
+
+console.log(bmw);
+*/
+
+class Amount {
+  // Public fields (instances)
+  locale = navigator.language;
+
+  // Private Fields
+  #movements = []; // # makes it private (syntax)
+  #pin;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+
+    //protected property
+    this.#pin = pin;
+    console.log(`Thanks for opening an account, ${this.owner}! `);
+  }
+
+  //public methods !
+  getMovements() {
+    return this.#movements;
+  }
+  deposit(val) {
+    this.#movements.push(val);
+  }
+  withdraw(val) {
+    this.deposit(-val);
+  }
+  requestLoan(val) {
+    if (this.#approveLoan) {
+      this.deposit(val);
+      console.log(`Loan approved of ${val}`);
+    }
+  }
+
+  //private methods not implemented in chrome i think so
+  #approveLoan(val) {
+    return true;
+  }
+}
+
+const acc1 = new Amount('Smit', 'INR', 5555);
+
+// all of them can be used out side of class including approveLoan and pin etc b ut it should be not so we use '_' to know it is private not the actual method just notation...
+
+acc1.deposit(100);
+
+acc1.withdraw(140);
+
+acc1.requestLoan(1800);
+
+console.log(acc1.getMovements());
+
+console.log(acc1);
+
+//ENCAPSULATION
+//private class fields and methods
