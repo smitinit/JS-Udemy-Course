@@ -72,9 +72,15 @@ class App {
   #map;
   #mapEvent;
   #workouts = [];
+  #coords = [];
+  #currentMarker = null;
 
   constructor() {
     this._getPosition();
+
+    //fetch from storage
+    this._getLocalStorage();
+
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevationField);
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
@@ -102,9 +108,18 @@ class App {
     }).addTo(this.#map);
     // * handle click
     this.#map.on('click', this._showForm.bind(this));
+
+    this.#workouts.forEach(work => {
+      this._renderWorkOutMarker(work);
+    });
   }
   _showForm(mapE) {
     this.#mapEvent = mapE;
+
+    //initial point on map on which workout will get added!
+    this.#coords = [this.#mapEvent.latlng.lat, this.#mapEvent.latlng.lng];
+    this._renderInitialPins(this.#coords);
+
     form.classList.remove('hidden');
     inputDistance.focus();
   }
@@ -164,9 +179,8 @@ class App {
       this.#workouts.push(workout);
     }
 
-    this._renderWorkOutMarker(workout);
-
     this._renderWorkout(workout);
+    this._renderWorkOutMarker(workout);
 
     //clear inputs fields + hide form
     this._hideForm();
@@ -177,6 +191,15 @@ class App {
   _setlocalStorage() {
     localStorage.setItem('workouts', JSON.stringify(this.#workouts));
   }
+  _getLocalStorage() {
+    const data = JSON.parse(localStorage.getItem('workouts'));
+
+    if (!data) return;
+    this.#workouts = data;
+    this.#workouts.forEach(work => {
+      this._renderWorkout(work);
+    });
+  }
   _renderWorkOutMarker(workout) {
     L.marker(workout.coords)
       .addTo(this.#map)
@@ -186,7 +209,7 @@ class App {
           minWidth: 100,
           maxHeight: 250,
           autoClose: false,
-          closeOnClick: false,
+          closeOnClick: true,
           className: `${workout.type}-popup`,
         })
       )
@@ -194,6 +217,13 @@ class App {
         `${workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'}${workout.description}`
       )
       .openPopup();
+  }
+  _renderInitialPins(coords) {
+    if (this.#currentMarker) {
+      this.#map.removeLayer(this.#currentMarker);
+    }
+
+    this.#currentMarker = L.marker(coords).addTo(this.#map);
   }
   _renderWorkout(workout) {
     // <button class="workout__delete--btn">Delete</button>
@@ -269,6 +299,7 @@ class App {
         duration: 1,
       },
     });
+    // L.marker(workout.coords).openOn(this.#map);
   }
 }
 
