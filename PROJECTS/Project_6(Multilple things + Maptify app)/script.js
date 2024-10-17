@@ -149,9 +149,8 @@ class App {
         return alert('Input must be a positive integer!');
 
       workout = new Running([lat, lng], distance, duration, cadence);
+      this.#workouts.push(workout);
     }
-
-    this.#workouts.push(workout);
 
     if (type === 'cycling') {
       const elevation = +inputElevation.value;
@@ -162,9 +161,8 @@ class App {
         return alert('Input must be a positive integer!');
 
       workout = new Cycling([lat, lng], distance, duration, elevation);
+      this.#workouts.push(workout);
     }
-
-    this.#workouts.push(workout);
 
     this._renderWorkOutMarker(workout);
 
@@ -173,6 +171,7 @@ class App {
     //clear inputs fields + hide form
     this._hideForm();
 
+    //set storage
     this._setlocalStorage();
   }
   _setlocalStorage() {
