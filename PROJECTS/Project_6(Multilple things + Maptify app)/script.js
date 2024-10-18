@@ -201,6 +201,9 @@ class App {
     });
   }
   _renderWorkOutMarker(workout) {
+    if (this.#currentMarker) {
+      this.#map.removeLayer(this.#currentMarker);
+    }
     L.marker(workout.coords)
       .addTo(this.#map)
       .bindPopup(
@@ -299,8 +302,14 @@ class App {
         duration: 1,
       },
     });
-    // L.marker(workout.coords).openOn(this.#map);
+  }
+
+  reset() {
+    localStorage.removeItem('workouts');
+    location.reload();
   }
 }
 
 const app = new App();
+
+document.querySelector('#btn-rst').addEventListener('click', () => app.reset());
