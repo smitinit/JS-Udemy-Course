@@ -106,7 +106,7 @@ function cleanSlate(spec) {
   inpt.focus();
 }
 
-//input specific
+// input specific
 document.querySelector('input').addEventListener('keypress', function (e) {
   if (inpt.value && e.key === 'Enter') {
     cleanSlate(true);
@@ -122,14 +122,18 @@ document.querySelector('.btn-all').addEventListener('click', function () {
   inpt.value = '';
 });
 
-//manual
-// * Selective
-// getCountryData('germany');
-// getCountryData('india');
-// getCountryData('usa');
-// getCountryData('china');
-// getCountryData('france');
-// getCountryData('singapore');
-
-//* All
-// getCountryData('all');
+/**
+//! CALLBACK HELL
+setTimeout(() => {
+  console.log('1 1s');
+  setTimeout(() => {
+    console.log('2 3s');
+    setTimeout(() => {
+      console.log('3 3s');
+      setTimeout(() => {
+        console.log('4 1s');
+      }, 1000);
+    }, 3000);
+  }, 3000);
+}, 1000);
+ */
