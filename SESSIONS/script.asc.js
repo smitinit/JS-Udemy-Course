@@ -46,6 +46,8 @@ const getCountryData = function (country) {
            } style = " width:25rem ;height:15rem"\> <br\><br\>`;
 
       root.insertAdjacentHTML('beforeend', html);
+      inpt.value = '';
+      inpt.focus();
     });
   });
 };
@@ -61,16 +63,12 @@ document.querySelector('input').addEventListener('keypress', function (e) {
   if (inpt.value && e.key === 'Enter') {
     cleanSlate(true);
     getCountryData(inpt.value);
-    inpt.value = '';
-    inpt.focus();
   }
 });
 
 document.querySelector('.btn-all').addEventListener('click', function () {
   cleanSlate();
   getCountryData('all');
-  inpt.value = '';
-  inpt.focus();
 });
 
 // * Selective
