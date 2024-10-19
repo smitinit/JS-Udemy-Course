@@ -1,6 +1,7 @@
 'use script';
 
 const root = document.getElementById('root');
+const inpt = document.querySelector('input');
 let html = null;
 let counter = 0;
 
@@ -14,7 +15,7 @@ const getCountryData = function (country) {
   request.send();
   request.addEventListener('load', function () {
     const data = JSON.parse(this.responseText);
-    // console.log(data);*
+    // console.log(data);
 
     if (!data) return;
     if (data.length === 0) return;
@@ -49,6 +50,29 @@ const getCountryData = function (country) {
   });
 };
 
+function cleanSlate(spec) {
+  root.innerHTML = '';
+  counter = 0;
+
+  document.querySelector('.btn-all').disabled = spec ? false : true;
+}
+
+document.querySelector('input').addEventListener('keypress', function (e) {
+  if (inpt.value && e.key === 'Enter') {
+    cleanSlate(true);
+    getCountryData(inpt.value);
+    inpt.value = '';
+    inpt.focus();
+  }
+});
+
+document.querySelector('.btn-all').addEventListener('click', function () {
+  cleanSlate();
+  getCountryData('all');
+  inpt.value = '';
+  inpt.focus();
+});
+
 // * Selective
 // getCountryData('germany');
 // getCountryData('india');
@@ -58,5 +82,4 @@ const getCountryData = function (country) {
 // getCountryData('singapore');
 
 //* All
-
-getCountryData('all');
+// getCountryData('all');
