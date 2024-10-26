@@ -211,7 +211,8 @@ const userLocation = function (lat, lon) {
 
 //EVENTS: (Micro-tasks)
 
-console.log('Start'); // 1st
+/**
+ console.log('Start'); // 1st
 
 setTimeout(() => console.log('SetTimeout event'), 0); // 5th
 
@@ -223,3 +224,39 @@ Promise.resolve('Resolved promise 2').then(res => {
 }); // 4th
 
 console.log('End'); //2nd
+ */
+
+// const promis = new Promise(function (resolve, reject) {
+//   console.log('Checking Started!');
+//   setTimeout(function () {
+//     if (Math.random() >= 0.5) {
+//       resolve('YOU WON');
+//     } else {
+//       reject(new Error('YOU LOSE'));
+//     }
+//   }, 2000);
+// });
+
+// promis.then(res => console.log(res)).catch(err => console.error(err));
+
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+// ! similar to callback hellllll
+
+wait(3)
+  .then(() => {
+    console.log('i waited for 2 sec');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('i waited for 1 sec');
+    return wait(5);
+  })
+  .then(() => console.log('i waited for 5 sec'));
+
+Promise.resolve('abc').then(x => console.log(x));
+Promise.reject(new Error('Problem!')).catch(err => console.error(err));
