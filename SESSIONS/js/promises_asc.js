@@ -208,3 +208,18 @@ const userLocation = function (lat, lon) {
 
 // userLocation(52.508, 13.381);
 // userLocation(19.037, 72.873);
+
+//EVENTS: (Micro-tasks)
+
+console.log('Start'); // 1st
+
+setTimeout(() => console.log('SetTimeout event'), 0); // 5th
+
+Promise.resolve('Resolved promise 1').then(res => console.log(res)); // 3rd
+
+Promise.resolve('Resolved promise 2').then(res => {
+  for (let i = 0; i <= 10000000000; i++) {}
+  console.log(res);
+}); // 4th
+
+console.log('End'); //2nd
