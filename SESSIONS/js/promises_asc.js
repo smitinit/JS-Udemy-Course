@@ -1,8 +1,9 @@
 'use script';
 
+const wmibtn = document.querySelector('.btn-wmi');
+/*
 const root = document.getElementById('root');
 const inpt = document.querySelector('input');
-const wmibtn = document.querySelector('.btn-wmi');
 
 let html = null;
 let counter = 0;
@@ -51,6 +52,7 @@ function renderCountry(data) {
     renderCountryHTML(d);
   });
 }
+*/
 /**
 function getNeighbours(data) {
   //initial title
@@ -239,6 +241,7 @@ console.log('End'); //2nd
 
 // promis.then(res => console.log(res)).catch(err => console.error(err));
 
+/**
 const wait = function (seconds) {
   return new Promise(function (resolve) {
     setTimeout(resolve, seconds * 1000);
@@ -260,3 +263,27 @@ wait(3)
 
 Promise.resolve('abc').then(x => console.log(x));
 Promise.reject(new Error('Problem!')).catch(err => console.error(err));
+
+*/
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    // navigator.geolocation.getCurrentPosition(
+    //   position => resolve(position),
+    //   err => reject(err)
+    // );
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+// getPosition().then(pos =>
+//   userLocation(pos.coords.latitude, pos.coords.longitude)
+// );
+
+const wmi = async function (country) {
+  const res = await fetch(`https://restcountries.com/v2/name/${country}`);
+  const [data1, data2] = await res.json();
+  console.log(data1, data2);
+};
+
+wmi('india');
