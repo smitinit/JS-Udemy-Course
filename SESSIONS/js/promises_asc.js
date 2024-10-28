@@ -199,13 +199,9 @@ const userLocation = function (lat, lon) {
     `https://us1.locationiq.com/v1/reverse?key=pk.6db4b71efa5726df589519e7059cfa23&lat=${lat}&lon=${lon}&format=json&`
   )
     .then(res => {
-      if (!res.ok) {
-        throw new Error('Toooo MANY REQUEST PER SECOND!');
-      }
       return res.json();
     })
-    .then(data => console.log(data))
-    .catch(err => console.error(err));
+    .then(data => console.log(data));
 };
 
 // userLocation(52.508, 13.381);
@@ -228,7 +224,7 @@ Promise.resolve('Resolved promise 2').then(res => {
 console.log('End'); //2nd
  */
 
-// const promis = new Promise(function (resolve, reject) {
+// const promise = new Promise(function (resolve, reject) {
 //   console.log('Checking Started!');
 //   setTimeout(function () {
 //     if (Math.random() >= 0.5) {
@@ -239,7 +235,7 @@ console.log('End'); //2nd
 //   }, 2000);
 // });
 
-// promis.then(res => console.log(res)).catch(err => console.error(err));
+// promise.then(res => console.log(res)).catch(err => console.error(err));
 
 /**
 const wait = function (seconds) {
@@ -248,7 +244,7 @@ const wait = function (seconds) {
   });
 };
 
-// ! similar to callback hellllll
+// ! similar to callback hel
 
 wait(3)
   .then(() => {
@@ -284,6 +280,25 @@ const wmi = async function (country) {
   const res = await fetch(`https://restcountries.com/v2/name/${country}`);
   const [data1, data2] = await res.json();
   console.log(data1, data2);
+  const data = await getPosition(19.037, 72.873);
+  console.log(data);
+  userLocation(19.037, 72.873);
 };
 
-wmi('india');
+(async function () {
+  const data = await Promise.race([
+    // 1.
+    // 2.
+    // 3.
+    //WHOEVER COME FIRST SERVED FIRST!!
+  ]);
+  // console.log(data);
+})();
+
+const rejectPromise = function (s) {
+  return new Promise(function (_, reject) {
+    setTimeout(() => reject(new Error('Req for too long')), s * 1000);
+  });
+};
+
+Promise.race([wmi('india'), rejectPromise(1)]);
