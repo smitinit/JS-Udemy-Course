@@ -1,18 +1,16 @@
-9630
+9643
 109D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\modules\es.function.bind.js133746945052231161 0
 107D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\features\weak-set\from.js133746945064461842 0
 105D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\dom-serializer\lib\esm\index.js133746907487972423 0
-78D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\package-lock.json133746945094716611 0
+78D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\package-lock.json133746990372988357 0
 104D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\semver\functions\prerelease.js133746907494555112 0
 129D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\@parcel\runtime-js\src\helpers\browser\esm-js-loader.js133746907491800928 0
 108D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\type-fest\source\set-optional.d.ts133746907494297571 0
-83D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\logo.726d37a8.png133746958241236448 0
 150D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\lexer\prepare-tokens.js133746907500193935 0
 103D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\features\set\every.js133746945060347279 0
 82D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\svgo\bin133746907486888131 1
 116D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\csso\node_modules\css-tree\lib\syntax\node133746907504893339 1
 105D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\stable\function\bind.js133746945044964102 0
-84D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\index.f7626f62.css133746958243430891 0
 92D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\micromatch\LICENSE133746907485826257 0
 122D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\caniuse-lite\data\features\picture-in-picture.js133746907510030655 0
 82D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\css-tree133746907505227955 1
@@ -23,13 +21,13 @@
 93D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\lmdb\src\cursor.cpp133746907499390329 0
 106D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\postcss-value-parser\lib\walk.js133746907488862856 0
 121D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\css-select\node_modules\domutils\lib\helpers.js133746907488701484 0
-92D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\.package-lock.json133746945095064136 0
+92D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\.package-lock.json133746990373330365 0
 132D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\@parcel\runtime-service-worker\src\ServiceWorkerRuntime.js133746907487204417 0
 110D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\modules\esnext.set.filter.js133746945059148270 0
 110D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\stable\instance\trim-left.js133746945089121149 0
 104D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\nth-check\lib\compile.d.ts.map133746907490206674 0
 140D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\@parcel\optimizer-htmlnano\node_modules\mdn-data\css\syntaxes.json133746907493188807 0
-73D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules133746945094019557 1
+73D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules133746990372339932 1
 117D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\csso\node_modules\css-tree\dist\version.cjs133746907500976441 0
 110D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\modules\es.typed-array.of.js133746945055961148 0
 91D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\is-glob\README.md133746907487602082 0
@@ -38,20 +36,19 @@
 115D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\modules\es.symbol.to-primitive.js133746945055509227 0
 94D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\lmdb\dependencies\v8133746907501049671 1
 108D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\modules\esnext.set.some.js133746945059444345 0
-81D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\src\js\controller.js133746966527718877 0
+81D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\src\js\controller.js133746989730984756 0
 109D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\stable\instance\trim-end.js133746945088940602 0
 108D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\type-fest\source\package-json.d.ts133746907493294071 0
 108D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\type-fest\ts41\delimiter-case.d.ts133746907490761135 0
 128D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\@parcel\workers\test\integration\workerfarm\logging.js133746907493284115 0
-84D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\icons.dfd7a6db.svg133746958241571860 0
 109D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\actual\string\trim-right.js133746945089175364 0
 99D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\csso\cjs\clean\Atrule.cjs133746907490301960 0
 114D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\css-tree\lib\syntax\node\UnicodeRange.js133746907504893339 0
 100D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\actual\typed-array133746945091764015 1
 152D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\syntax\scope\atrulePrelude.js133746907489955918 0
 133D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\lmdb\dependencies\lmdb-data-v1\libraries\liblmdb\mdb_copy.c133746907495315891 0
-67D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\src\js133746715921904130 1
-76D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\index.html133746958242556841 0
+67D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\src\js133746969791485818 1
+76D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\index.html133746977201678729 0
 106D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\electron-to-chromium\versions.js133746907489228834 0
 112D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\features\instance\ends-with.js133746945049662864 0
 109D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\proposals\iterator-range.js133746945071463721 0
@@ -67,16 +64,15 @@
 115D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\caniuse-lite\data\features\textcontent.js133746907511499191 0
 109D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\internals\iterators-core.js133746945071884331 0
 92D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\is-extglob\LICENSE133746907486874455 0
-81D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\@parcel133746945093989568 1
+81D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\@parcel133746990372349952 1
 94D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\htmlnano\index.d.cts133746907494157008 0
 109D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\proposals\set-methods-v2.js133746945081599757 0
 118D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\lmdb\node_modules\node-addon-api\common.gypi133746907486839223 0
 114D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\actual\promise\with-resolvers.js133746945091668621 0
 106D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\term-size\vendor\macos\term-size133746907487874522 0
-86D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\favicon.8b2f57bf.png133746958242737679 0
 117D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\stable\array\virtual\to-reversed.js133746945087447300 0
+84D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\icons.21bad73c.svg133746990851430822 0
 99D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\@parcel\packager-html\src133746907487033534 1
-84D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\icons.21bad73c.svg133746958243098789 0
 96D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\escalade\dist\index.js133746907486434905 0
 106D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\immutable\dist\immutable.js.flow133746908321354110 0
 104D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\features\math\scale.js133746945080162615 0
@@ -84,7 +80,6 @@
 117D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\features\reflect\delete-property.js133746945048982909 0
 131D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\csso\node_modules\css-tree\cjs\syntax\node\WhiteSpace.cjs133746907501067020 0
 101D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\es\array\unshift.js133746945090426832 0
-88D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\index.f7626f62.css.map133746958243450889 0
 93D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\css-tree\lib\parser133746907504752868 1
 103D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\@swc\helpers\src\_extends.mjs133746907507153552 0
 97D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\to-regex-range\index.js133746907486329577 0
@@ -109,7 +104,7 @@
 72D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\.prettierrc133746715593831187 0
 82D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\src\sass\_header.scss133746715594191177 0
 106D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\full\number\is-finite.js133746945070099254 0
-65D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist133746966529323364 1
+65D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist133746995670461514 1
 83D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\nth-check133746907492525167 1
 94D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\is-arrayish\index.js133746907487982539 0
 105D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\features\error\index.js133746945068264206 0
@@ -185,7 +180,7 @@
 121D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\midl.h133746907500931305 0
 104D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\htmlparser2\lib\FeedHandler.js133746907486454868 0
 98D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\node-addon-api\nothing.c133746907485512518 0
-73D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\package.json133746945094100298 0
+73D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\package.json133746990372405178 0
 126D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\csso\node_modules\css-tree\lib\syntax\node\Number.js133746907504020276 0
 115D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\internals\object-is-extensible.js133746945075698044 0
 111D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\actual\async-iterator\take.js133746945086298769 0
@@ -1745,6 +1740,7 @@
 95D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\posthtml\node_modules133746907457642706 1
 113D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\css-tree\lib\syntax\node\index-parse.js133746907503375860 0
 113D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\stable\array\virtual\entries.js133746945050095814 0
+93D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\fractional\releases133746990372204696 1
 111D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\stable\string\virtual\link.js133746945073062436 0
 110D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\cosmiconfig\dist\getDirectory.js.map133746907493709127 0
 119D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\@parcel\source-map\dist\wasm-bindings.js.flow133746907488917160 0
@@ -2590,6 +2586,7 @@
 120D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\dom-serializer\node_modules\entities\readme.md133746907491517409 0
 111D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\css-tree\lib\syntax\node\Dimension.js133746907502853082 0
 114D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\caniuse-lite\data\features\nav-timing.js133746907509471943 0
+73D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\src\js\views133746969919349843 1
 95D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\mdn-data\CHANGELOG.md133746907494081913 0
 86D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\mdn-data\css133746907494157008 1
 104D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\css-what\lib\es\index.d.ts.map133746907490958688 0
@@ -6847,6 +6844,7 @@
 104D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\features\math\log10.js133746945073114693 0
 103D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\features\math\log2.js133746945073189830 0
 110D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\features\math\rad-per-deg.js133746945077893284 0
+109D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\fractional\releases\fraction-0.2.js133746990372269947 0
 110D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\features\math\seeded-prng.js133746945080632111 0
 103D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\features\math\sign.js133746945082317268 0
 105D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\caniuse-lite\data\regions\GE.js133746907506674509 0
@@ -7655,6 +7653,7 @@
 110D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\actual\instance\trim-left.js133746945088965649 0
 111D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\actual\instance\trim-start.js133746945089290747 0
 107D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\actual\instance\values.js133746945090817277 0
+84D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\fractional133746990372214735 1
 105D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\actual\instance\with.js133746945091748935 0
 106D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\actual\function\index.js133746945067589050 0
 109D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\core-js\actual\function\metadata.js133746945075074816 0
@@ -9627,5 +9626,19 @@
 87D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\index.62406edb.js.map133746908357510678 0
 102D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\PROJECT_7(FINAL PROJECT).3464ddca.js133746908357510678 0
 106D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\PROJECT_7(FINAL PROJECT).3464ddca.js.map133746908357560674 0
-83D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\index.e37f48ea.js133746966529232058 0
-87D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\index.e37f48ea.js.map133746966529313016 0
+76D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\src\js\model.js133746974499449342 0
+87D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\src\js\views\recipeView.js133746995669436036 0
+97D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\fractional\package.json133746990371966136 0
+94D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\fractional\README.md133746990372077347 0
+100D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\fractional\array_mixins.js133746990372101312 0
+93D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\fractional\index.js133746990372151448 0
+93D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\fractional\tests.js133746990372184689 0
+95D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\fractional\index.html133746990372204696 0
+109D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\node_modules\fractional\releases\fraction-0.1.js133746990372244713 0
+84D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\index.f7626f62.css133746990850661315 0
+88D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\index.f7626f62.css.map133746990850701682 0
+86D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\favicon.8b2f57bf.png133746990850759534 0
+83D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\logo.726d37a8.png133746990850858727 0
+84D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\icons.dfd7a6db.svg133746990851380648 0
+83D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\index.e37f48ea.js133746995670421611 0
+87D:\VsC\JS FullCourse Udemy\PROJECTS\PROJECT_7(FINAL PROJECT)\dist\index.e37f48ea.js.map133746995670451494 0
