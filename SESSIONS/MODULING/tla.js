@@ -38,6 +38,8 @@ console.log(lastPost);
 const lastPost2 = await getLastPost(); // TLA AWAIT
 console.log(lastPost2);
 */
+
+/*
 const shoppingCart = (function () {
   const cart = [];
   const shoppingCart = [];
@@ -52,3 +54,25 @@ const shoppingCart = (function () {
 })();
 
 console.log(shoppingCart.cart);
+
+*/
+
+import cloneDeep from '../../node_modules/lodash-es/cloneDeep.js';
+
+const state = {
+  cart: [
+    { product: 'bread', quantity: 5 },
+    { product: 'pizza', quantity: 5 },
+  ],
+  user: { loggedIn: true },
+};
+
+const stateClone = Object.assign({}, state); // CLONE
+console.log(stateClone);
+
+state.user.loggedIn = false; //! CHANGES CLONE ALSO!!
+
+const stateCloneLodash = cloneDeep(state); // SO USE LODASH
+console.log(stateCloneLodash);
+
+state.user.loggedIn = true;
