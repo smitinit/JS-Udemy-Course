@@ -2,6 +2,7 @@
 
 //EXPORTING AND IMPORTING SESSION (USE OF AS/*/DEFAULT...)
 
+/** 
 import {
   pushToCart,
   allInCart,
@@ -53,3 +54,5 @@ removeItem('Grapes');
 
 allInCart();
 //--------------------
+
+*/

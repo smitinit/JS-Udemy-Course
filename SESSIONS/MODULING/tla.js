@@ -3,6 +3,7 @@
 // TOP LEVEL AWAIT WITHOUT ASYNC:: IT BLOCKS ALL OTHER PROCESS IN MODULE!!
 // ! TLA BLOCKS OTHER PROCESSES
 
+/** 
 const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
 const data = await res.json();
 
@@ -36,3 +37,18 @@ console.log(lastPost);
 // * GOOD !
 const lastPost2 = await getLastPost(); // TLA AWAIT
 console.log(lastPost2);
+*/
+const shoppingCart = (function () {
+  const cart = [];
+  const shoppingCart = [];
+  const totalPrice = 234;
+  const quantity = 67;
+  return {
+    cart,
+    shoppingCart,
+    totalPrice,
+    quantity,
+  };
+})();
+
+console.log(shoppingCart.cart);
