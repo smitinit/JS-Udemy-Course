@@ -9,6 +9,7 @@ import 'regenerator-runtime/runtime';
 
 import * as model from './model.js';
 import recipeView from './views/recipeView.js';
+import searchView from './views/searchView.js';
 
 //----------------------------------------------------
 
@@ -17,8 +18,7 @@ import recipeView from './views/recipeView.js';
 // Main Control
 const controlRecipe = async function () {
   try {
-    let id = window.location.hash.slice(1);
-    id = '664c8f193e7aa067e94e845'; //temporary
+    const id = window.location.hash.slice(1);
     if (!id) return; // Guard
 
     recipeView.loadingSpinner();
@@ -35,8 +35,22 @@ const controlRecipe = async function () {
   }
 };
 
+const controlSearch = async function () {
+  try {
+    // 1. get search query
+    const query = searchView.getQuery();
+    if (!query) return;
+
+    // 2. load and render search query
+    await model.searchRecipe(query);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // *Start Application
 const init = function () {
   recipeView.addHandlerRender(controlRecipe);
+  searchView.addHandlerSearch(controlSearch);
 };
 init();
