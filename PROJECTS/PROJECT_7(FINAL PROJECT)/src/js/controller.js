@@ -10,6 +10,7 @@ import 'regenerator-runtime/runtime';
 import * as model from './model.js';
 import recipeView from './views/recipeView.js';
 import searchView from './views/searchView.js';
+import resultView from './views/resultsView.js';
 
 //----------------------------------------------------
 
@@ -31,12 +32,13 @@ const controlRecipe = async function () {
   } catch (err) {
     recipeView.renderError`Something went Wrong!! <br />${err
       .toString()
-      .replace('Error:', '')}`();
+      .replace('Error:', '')}`;
   }
 };
 
 const controlSearch = async function () {
   try {
+    resultView.loadingSpinner();
     // 1. get search query
     const query = searchView.getQuery();
     if (!query) return;
