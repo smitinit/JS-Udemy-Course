@@ -4,6 +4,9 @@ export default class View {
   _data;
 
   render(data) {
+    if (!data || (data.length === 0 && Array.isArray(data)))
+      return this.renderError();
+
     this._data = data;
     const html = this._generateHTML();
 

@@ -1,8 +1,11 @@
-//---------------------BABEL SHIT---------------------
+//---------------------BABEL - PARCEL -  SHIT---------------------
 
 import 'core-js/stable'; //polyFilling
 import 'regenerator-runtime/runtime';
 
+// if (module.hot) {
+//   module.hot.accept();
+// }
 //----------------------------------------------------
 
 //----------------------Imports-----------------------
@@ -45,6 +48,8 @@ const controlSearch = async function () {
 
     // 2. load and render search query
     await model.searchRecipe(query);
+
+    resultView.render(model.state.searchRecipe.result);
   } catch (error) {
     console.log(error);
   }

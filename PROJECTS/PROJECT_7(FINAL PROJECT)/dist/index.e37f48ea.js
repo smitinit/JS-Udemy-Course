@@ -584,10 +584,13 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"aenu9":[function(require,module,exports) {
-//---------------------BABEL SHIT---------------------
+//---------------------BABEL - PARCEL -  SHIT---------------------
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _webImmediateJs = require("core-js/modules/web.immediate.js");
 var _runtime = require("regenerator-runtime/runtime");
+// if (module.hot) {
+//   module.hot.accept();
+// }
 //----------------------------------------------------
 //----------------------Imports-----------------------
 var _modelJs = require("./model.js");
@@ -621,6 +624,7 @@ const controlSearch = async function() {
         if (!query) return;
         // 2. load and render search query
         await _modelJs.searchRecipe(query);
+        (0, _resultsViewJsDefault.default).render(_modelJs.state.searchRecipe.result);
     } catch (error) {
         console.log(error);
     }
@@ -2645,9 +2649,7 @@ class RecipeView extends (0, _viewJsDefault.default) {
           </div>
 
           <div class="recipe__user-generated">
-            <svg>
-              <use href="${0, _iconsSvgDefault.default}#icon-user"></use>
-            </svg>
+        
           </div>
           <button class="btn--round">
             <svg class="">
@@ -3001,6 +3003,7 @@ var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class View {
     _data;
     render(data) {
+        if (!data || data.length === 0 && Array.isArray(data)) return this.renderError();
         this._data = data;
         const html = this._generateHTML();
         this._clear();
@@ -3078,11 +3081,32 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
+var _iconsSvg = require("url:../../img/icons.svg");
+var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class ResultView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".results ");
+    _errorMessage = "No result Found!!";
+    _generateHTML() {
+        return this._data.map(this._generateHTMLPreview).join("");
+    }
+    _generateHTMLPreview(result) {
+        // console.log(result);
+        return `
+    <li class="preview">
+        <a class="preview__link " href="#${result.id}">
+          <figure class="preview__fig">
+            <img src="${result.imageUrl}" alt="Test" />
+          </figure>
+          <div class="preview__data">
+            <h4 class="preview__title">${result.title}</h4>
+            <p class="preview__publisher">${result.publisher}</p>
+          </div>
+        </a>
+      </li>`;
+    }
 }
 exports.default = new ResultView();
 
-},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["hycaY","aenu9"], "aenu9", "parcelRequire3a11")
+},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","url:../../img/icons.svg":"loVOp"}]},["hycaY","aenu9"], "aenu9", "parcelRequire3a11")
 
 //# sourceMappingURL=index.e37f48ea.js.map
