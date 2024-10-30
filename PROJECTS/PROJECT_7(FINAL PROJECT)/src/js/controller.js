@@ -18,7 +18,7 @@ import recipeView from './views/recipeView.js';
 const controlRecipe = async function () {
   try {
     let id = window.location.hash.slice(1);
-    id = '664c8f193e7aa067e94e845a'; //temporary
+    id = '664c8f193e7aa067e94e845'; //temporary
     if (!id) return; // Guard
 
     recipeView.loadingSpinner();
@@ -29,7 +29,9 @@ const controlRecipe = async function () {
     // 2. Rendering recipe
     recipeView.render(model.state.recipe);
   } catch (err) {
-    console.error(err);
+    recipeView.renderError`Something went Wrong!! <br />${err
+      .toString()
+      .replace('Error:', '')}`();
   }
 };
 
