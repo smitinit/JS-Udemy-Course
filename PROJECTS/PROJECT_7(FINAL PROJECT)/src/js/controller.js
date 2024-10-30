@@ -1,43 +1,40 @@
+//---------------------BABEL SHIT---------------------
+
 import 'core-js/stable'; //polyFilling
 import 'regenerator-runtime/runtime';
+
+//----------------------------------------------------
+
+//----------------------Imports-----------------------
 
 import * as model from './model.js';
 import recipeView from './views/recipeView.js';
 
+//----------------------------------------------------
+
 // const recipeContainer = document.querySelector('.recipe');
 
-const timeout = function (s) {
-  return new Promise(function (_, reject) {
-    setTimeout(function () {
-      reject(new Error(`Request took too long! Timeout after ${s} second`));
-    }, s * 1000);
-  });
-};
-
-// https://forkify-api.herokuapp.com/v2
-
-//------------------------------------------------------------
-
-// FETCH
+// Main Control
 const controlRecipe = async function () {
   try {
-    const id = window.location.hash.slice(1);
-    if (!id) return; // guard
+    let id = window.location.hash.slice(1);
+    id = '664c8f193e7aa067e94e845a'; //temporary
+    if (!id) return; // Guard
 
     recipeView.loadingSpinner();
 
-    // Loading recipe
+    // 1. Loading recipe
     await model.loadRecipe(id);
 
-    // Rendering recipe
+    // 2. Rendering recipe
     recipeView.render(model.state.recipe);
   } catch (err) {
     console.error(err);
   }
 };
 
-['hashchange', 'load'].forEach(ev =>
-  window.addEventListener(ev, controlRecipe)
-);
-// window.addEventListener('hashchange', controlRecipe);
-// window.addEventListener('load', controlRecipe);
+// *Start Application
+const init = function () {
+  recipeView.addHandlerRender(controlRecipe);
+};
+init();
