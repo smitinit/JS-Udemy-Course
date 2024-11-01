@@ -610,6 +610,8 @@ const controlRecipe = async function() {
         const id = window.location.hash.slice(1);
         if (!id) return; // Guard
         (0, _recipeViewJsDefault.default).loadingSpinner();
+        // 0. Result view mark selected recipe
+        (0, _resultsViewJsDefault.default).update(_modelJs.pageRenderOnSearch());
         // 1. Loading recipe
         await _modelJs.loadRecipe(id);
         // 2. Rendering recipe
@@ -3054,10 +3056,20 @@ class View {
         this._clear();
         this._parentElement.insertAdjacentHTML("afterbegin", html);
     }
+    // DOM UPDATE ALGORITHM
     update(data) {
-        if (!data || data.length === 0 && Array.isArray(data)) return this.renderError();
         this._data = data;
         const newHtml = this._generateHTML();
+        const newDOM = document.createRange().createContextualFragment(newHtml);
+        const newElements = Array.from(newDOM.querySelectorAll("*"));
+        const currentElements = Array.from(this._parentElement.querySelectorAll("*"));
+        newElements.forEach((newEl, i)=>{
+            const curEl = currentElements[i];
+            //Update changed Text
+            if (!newEl.isEqualNode(curEl) && newEl.firstChild?.nodeValue.trim() !== "") curEl.textContent = newEl.textContent;
+            //update change Attributes
+            if (!newEl.isEqualNode(curEl)) Array.from(newEl.attributes).forEach((attr)=>curEl.setAttribute(attr.name, attr.value));
+        });
     }
     loadingSpinner = function() {
         const html = `
@@ -3140,9 +3152,10 @@ class ResultView extends (0, _viewJsDefault.default) {
         return this._data.map(this._generateHTMLPreview).join("");
     }
     _generateHTMLPreview(result) {
+        const id = window.location.hash.slice(1);
         return `
     <li class="preview">
-        <a class="preview__link " href="#${result.id}">
+        <a class="preview__link ${result.id === id ? "preview__link--active" : ""}" href="#${result.id}">
           <figure class="preview__fig">
             <img src="${result.imageUrl}" alt="Test" />
           </figure>
