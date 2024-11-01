@@ -13,6 +13,13 @@ export default class View {
     this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', html);
   }
+  update(data) {
+    if (!data || (data.length === 0 && Array.isArray(data)))
+      return this.renderError();
+
+    this._data = data;
+    const newHtml = this._generateHTML();
+  }
 
   loadingSpinner = function () {
     const html = `

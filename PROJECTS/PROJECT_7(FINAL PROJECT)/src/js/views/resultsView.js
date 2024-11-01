@@ -8,7 +8,6 @@ class ResultView extends View {
     return this._data.map(this._generateHTMLPreview).join('');
   }
   _generateHTMLPreview(result) {
-    // console.log(result);
     return `
     <li class="preview">
         <a class="preview__link " href="#${result.id}">
