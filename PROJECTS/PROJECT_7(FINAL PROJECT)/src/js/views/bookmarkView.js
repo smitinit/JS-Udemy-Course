@@ -1,5 +1,4 @@
 import View from './View.js';
-import icons from 'url:../../img/icons.svg';
 import previewView from './previewView.js';
 
 class BookmarkView extends View {
@@ -7,6 +6,9 @@ class BookmarkView extends View {
   _errorMessage = 'No Bookmarks Found!!';
   _message = '';
 
+  addHandlerRender(handler) {
+    window.addEventListener('load', handler());
+  }
   _generateHTML() {
     return this._data
       .map(bookmark => previewView.render(bookmark, false))
