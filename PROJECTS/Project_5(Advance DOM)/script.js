@@ -36,7 +36,7 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-btnScrollTo.addEventListener('click', e => {
+btnScrollTo.addEventListener('click', _ => {
   // const slcords = section1.getBoundingClientRect();
   // console.log(e.target.getBoundingClientRect());
 
@@ -62,14 +62,14 @@ btnScrollTo.addEventListener('click', e => {
 //   });
 // });
 
-document.querySelector('.nav__links').addEventListener('click', function (e) {
-  // hard advance!!
-  if (e.target.classList.contains('nav__link')) {
-    e.preventDefault();
-    const id = e.target.getAttribute('href');
-    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-  }
-});
+// document.querySelector('.nav__links').addEventListener('click', function (e) {
+//   // hard advance!!
+//   if (e.target.classList.contains('nav__link')) {
+//     e.preventDefault();
+//     const id = e.target.getAttribute('href');
+//     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+//   }
+// });
 
 tabContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.operations__tab');

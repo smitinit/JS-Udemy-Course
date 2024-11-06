@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      section,
+      img {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        font-size: larger;
+        background-color: #383838;
+        padding: 2rem;
+      }
+      a {
+        color: white;
+        text-decoration: none;
+      }
+      a:hover {
+        color: rgba(248, 137, 137, 0.812);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <nav>
+        <ul>
+          <li><a href="#section1">Go to 1...</a></li>
+          <li><a href="#section2">Go to 2...</a></li>
+          <li><a href="#section3">Go to 3...</a></li>
+          <li><a href="#section4">Go to 4...</a></li>
+        </ul>
+      </nav>
+      <section id="section1">
+        <img
+          src="https://png.pngtree.com/thumb_back/fw800/background/20241007/pngtree-colorful-eggs-hd-8k-wallpaper-stock-photographic-image-image_16320437.jpg"
+          alt="image1"
+        />
+      </section>
+      <section id="section2">
+        <img
+          src="https://png.pngtree.com/thumb_back/fw800/background/20241013/pngtree-pineapple-splash-hd-8k-wallpaper-stock-image_16373781.jpg"
+          alt="image2"
+        />
+      </section>
+      <section id="section3">
+        <img
+          src="https://png.pngtree.com/thumb_back/fw800/background/20241024/pngtree-beautiful-8k-nature-scene-background-wallpaper-stunning-landscape-breathtaking-natural-scenery-image_16445526.jpg"
+          alt="image3"
+        />
+      </section>
+      <section id="section4">
+        <img
+          src="https://png.pngtree.com/thumb_back/fw800/background/20240913/pngtree-beautiful-nature-scenery-wallpaper-view-image_16172461.jpg"
+          alt="image4"
+        />
+      </section>
+    </main>
+    <script>
+      document.querySelector('ul').addEventListener('click', function (e) {
+        e.preventDefault();
+        const id = e.target.getAttribute('href');
+        console.log(id);
+        document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+      });
+    </script>
+  </body>
+</html>
