@@ -18,6 +18,7 @@
     <!-- TOP NAVIGATION -->
     <nav>
       <p class="welcome">Log in to get started</p>
+      <button class="form__btn--add__acc">Add accounts</button>
       <img src="logo.png" alt="Logo" class="logo" />
       <form class="login">
         <input
@@ -36,6 +37,77 @@
         />
         <button class="login__btn">&rarr;</button>
       </form>
+
+      <form id="accountForm" class="add_acc_form hidden">
+        <label for="owner">Owner:</label>
+        <input
+          type="text"
+          placeholder="[ first middle last ] name"
+          id="owner"
+          name="owner"
+          required
+        /><br /><br />
+
+        <label for="movements">Movements (comma-separated):</label>
+        <input
+          type="text"
+          id="movements"
+          name="movements"
+          placeholder="e.g., 200, 455.23, -306.5"
+          value=""
+        /><br /><br />
+
+        <label for="interestRate">Interest Rate (%):</label>
+        <input
+          type="number"
+          id="interestRate"
+          name="interestRate"
+          placeholder="interest rate"
+          step="0.1"
+          value="1.234"
+        /><br /><br />
+
+        <label for="pin">PIN:</label>
+        <input
+          type="password"
+          id="pin"
+          name="pin"
+          required
+          placeholder="max-length 4 [number]"
+        /><br /><br />
+
+        <label for="movementsDates">Movement Dates (comma-separated):</label>
+        <input
+          type="text"
+          value=""
+          id="movementsDates"
+          name="movementsDates"
+          placeholder="will be auto generated..."
+          placeholder="YYYY-MM-DDTHH:MM:SS"
+        /><br /><br />
+
+        <label for="currency">Currency:</label>
+        <input
+          type="text"
+          id="currency"
+          value="INR₹"
+          name="currency"
+          placeholder="Formate: 'CUR[symbol]'"
+          required
+        /><br /><br />
+
+        <label for="locale">Locale:</label>
+        <input
+          type="text"
+          value="eu-US"
+          id="locale"
+          name="locale"
+          placeholder="e.g., pt-PT"
+          required
+        /><br /><br />
+
+        <button class="btn--submit-form" type="submit">Submit</button>
+      </form>
     </nav>
 
     <main class="app">
@@ -52,7 +124,7 @@
 
       <!-- MOVEMENTS -->
       <div class="movements">
-        <div class="movements__row">
+        <!-- <div class="movements__row">
           <div class="movements__type movements__type--deposit">2 deposit</div>
           <div class="movements__date">3 days ago</div>
           <div class="movements__value">4 000€</div>
@@ -63,7 +135,7 @@
           </div>
           <div class="movements__date">24/01/2037</div>
           <div class="movements__value">-378€</div>
-        </div>
+        </div> -->
       </div>
 
       <!-- SUMMARY -->
@@ -114,6 +186,16 @@
           <label class="form__label">Confirm PIN</label>
         </form>
       </div>
+
+      <!-- OPERATION: CLOSE -->
+      <!-- <div class="operation operation--transac">
+        <h2>Transactions(+/-)</h2>
+        <form class="form form--transac">
+          <input type="text" class="form__input form__input--Transac" />
+
+          <button class="form__btn form__btn--transac">&rarr;</button>
+        </form>
+      </div> -->
 
       <!-- LOGOUT TIMER -->
       <p class="logout-timer">

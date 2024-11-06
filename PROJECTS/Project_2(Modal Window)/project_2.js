@@ -9,6 +9,7 @@ function closeModal() {
   modal.classList.add('hidden');
   overlay.classList.add('hidden');
 }
+
 function openModal() {
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');

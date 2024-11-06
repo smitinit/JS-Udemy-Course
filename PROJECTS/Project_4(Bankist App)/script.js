@@ -17,7 +17,7 @@ const account1 = {
     "2020-07-11T23:36:17.929Z",
     "2020-07-12T10:51:36.790Z",
   ],
-  currency: "EUR",
+  currency: "EUR€",
   locale: "pt-PT", // de-DE
 };
 
@@ -37,11 +37,14 @@ const account2 = {
     "2020-06-25T18:49:59.371Z",
     "2020-07-26T12:01:20.894Z",
   ],
-  currency: "USD",
+  currency: "INR₹",
   locale: "en-US",
 };
 
-const accounts = [account1, account2];
+const accounts = JSON.parse(localStorage.getItem("Accounts")) ?? [
+  account1,
+  account2,
+];
 
 // Elements
 const labelWelcome = document.querySelector(".welcome");
@@ -60,6 +63,9 @@ const btnTransfer = document.querySelector(".form__btn--transfer");
 const btnLoan = document.querySelector(".form__btn--loan");
 const btnClose = document.querySelector(".form__btn--close");
 const btnSort = document.querySelector(".btn--sort");
+const btnTransac = document.querySelector(".form__btn--transac");
+const btnAddAccount = document.querySelector(".form__btn--add__acc");
+const btnNewAccount = document.querySelector(".btn--submit-form");
 
 const inputLoginUsername = document.querySelector(".login__input--user");
 const inputLoginPin = document.querySelector(".login__input--pin");
@@ -68,6 +74,13 @@ const inputTransferAmount = document.querySelector(".form__input--amount");
 const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
+const inputTransac = document.querySelector(".form__input--Transac");
+
+const form = document.querySelector("#accountForm");
+// GLOBALS
+let newAccount = {};
+let sortedState = false;
+let selectedAccount, timer;
 
 // create username
 const createUserName = (accounts) =>
@@ -87,7 +100,7 @@ const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = "";
 
   const sortedmovs = sort
-    ? acc.movements.slice().sort((a, b) => a - b)
+    ? acc.movements.slice().sort((a, z) => a - z) // .slice() is for generating a new array!
     : acc.movements;
 
   sortedmovs.forEach((el, i) => {
@@ -103,27 +116,32 @@ const displayMovements = function (acc, sort = false) {
       i + 1
     } ${type}</div>
      <div class="movements__date">${displayDate}</div>
-          <div class="movements__value">${el.toFixed(2)}$</div>
+          <div class="movements__value">${el.toFixed(2)}${acc.currency.slice(
+      -1
+    )}</div>
         </div>`;
     containerMovements.insertAdjacentHTML("afterbegin", html);
   });
 };
 
 const displayTotalBalance = (acc) => {
-  acc.balance = acc.movements.reduce((acc, cur, _, arr) => acc + cur, 0);
-  labelBalance.textContent = `${acc.balance} USD`;
+  acc.balance = acc.movements.reduce((acc, cur) => acc + cur, 0);
+  labelBalance.textContent = `${acc.balance} ${acc.currency
+    .split("₹")
+    .join()
+    .replace(",", "")}`;
 };
 
 const displaySummary = (acc) => {
   const IN = acc.movements
     .filter((el) => el > 0)
     .reduce((acc, cur) => acc + cur, 0);
-  labelSumIn.textContent = `${IN.toFixed(2)}$`;
+  labelSumIn.textContent = `${IN.toFixed(2)}${acc.currency.slice(-1)}`;
 
   const OUT = acc.movements
     .filter((el) => el < 0)
     .reduce((acc, cur) => acc + cur, 0);
-  labelSumOut.textContent = `${OUT.toFixed(2)}$`;
+  labelSumOut.textContent = `${OUT.toFixed(2)}${acc.currency.slice(-1)}`;
 
   let inst = acc.movements
     .filter((el) => el > 0)
@@ -131,14 +149,54 @@ const displaySummary = (acc) => {
     .filter((el) => el > 1)
     .reduce((acc, cur) => acc + cur, 0);
 
-  labelSumInterest.textContent = `${inst.toFixed(2)}$`;
+  labelSumInterest.textContent = `${inst.toFixed(2)}${acc.currency.slice(-1)}`;
 };
 
 const updateUI = function (selectedAccount) {
+  // console.log(selectedAccount);
   displayMovements(selectedAccount);
   displayTotalBalance(selectedAccount);
   displaySummary(selectedAccount);
 };
+
+btnNewAccount.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  let formData = new FormData(form);
+  for (let [key, value] of formData) {
+    newAccount[key] = value;
+  }
+  if (newAccount.owner === "" && newAccount.pin === "") return;
+
+  newAccount.movements = newAccount.movements
+    .split(",")
+    .map((mov) => +mov)
+    .filter((mov) => mov !== 0);
+
+  //Generates Dates
+
+  if (newAccount.movementsDates === "") {
+    newAccount.movementsDates = [];
+    newAccount.movements.map(() => {
+      const date = new Date().toISOString();
+      newAccount.movementsDates.push(date);
+    });
+  }
+
+  // updateUI(newAccount);
+  // containerApp.style.opacity = 100;
+  // Update accounts array
+  accounts.push(newAccount);
+  selectedAccount = newAccount;
+  storeAccounts(accounts);
+
+  formData = {};
+  newAccount = {};
+
+  document.querySelector(".add_acc_form").classList.toggle("hidden");
+  labelWelcome.textContent = `Account added, Log in to get started!`;
+  createUserName(accounts);
+});
 
 const setTimer = () => {
   const ti = () => {
@@ -159,18 +217,43 @@ const setTimer = () => {
   return timer;
 };
 
-let selectedAccount, timer;
-// FAKE LOGIN IN
-// selectedAccount = account1;
-// updateUI(selectedAccount);
-// containerApp.style.opacity = 100;
+const stayLoggedIn = function (selectedAcc = account1) {
+  selectedAccount = selectedAcc;
 
-btnLogin.addEventListener("click", function (e) {
+  const now = new Date();
+  const options = {
+    hour: "numeric",
+    minute: "numeric",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    weekday: "long",
+  };
+  labelDate.textContent = new Intl.DateTimeFormat(
+    selectedAccount.locale,
+    options
+  ).format(now);
+
+  inputLoginUsername.value = inputLoginPin.value = "";
+  inputLoginPin.blur();
+
+  if (timer) clearInterval(timer);
+  timer = setTimer();
+
+  updateUI(selectedAccount);
+  containerApp.style.opacity = 100;
+};
+
+// stayLoggedIn(account2);
+
+function Login(e) {
   e.preventDefault();
+
   selectedAccount = accounts.find(
     (acc) => acc.username === inputLoginUsername.value
   );
-  if (selectedAccount?.pin === Number(inputLoginPin.value)) {
+
+  if (+selectedAccount?.pin === Number(inputLoginPin.value)) {
     labelWelcome.textContent = `Welcome back, ${
       selectedAccount.owner.split(" ")[0]
     }!`;
@@ -200,11 +283,18 @@ btnLogin.addEventListener("click", function (e) {
     timer = setTimer();
     updateUI(selectedAccount);
   } else {
+    labelWelcome.textContent = `Can't find, add an account to get started!`;
     inputLoginUsername.value = inputLoginPin.value = "";
     containerApp.style.opacity = 0;
-    labelWelcome.textContent = `Log in to get started`;
   }
-});
+}
+
+const storeAccounts = function (allAccounts) {
+  localStorage.setItem("Accounts", JSON.stringify(allAccounts));
+};
+// -----------------------------------------------------------------EVENTS
+
+btnLogin.addEventListener("click", (e) => Login(e));
 
 btnTransfer.addEventListener("click", function (e) {
   e.preventDefault();
@@ -244,6 +334,7 @@ btnClose.addEventListener("click", function (e) {
     accounts.slice(index, 1);
     containerApp.style.opacity = 0;
     labelWelcome.textContent = `Log in to get started`;
+    storeAccounts(accounts);
   }
   inputClosePin.value = inputCloseUsername.value = "";
 });
@@ -263,11 +354,24 @@ btnLoan.addEventListener("click", function (e) {
   }
   inputLoanAmount.value = "";
 });
-let sortedState = false;
+
+// btnTransac.addEventListener("click", function (e) {
+//   e.preventDefault();
+//   const newTransac = +inputTransac.value;
+//   selectedAccount.movements.push(newTransac); // TODO
+//   updateUI(selectedAccount);
+// });
+
+// SORTING MOVEMENTS
+
 btnSort.addEventListener("click", function (e) {
   e.preventDefault();
-  displayMovements(selectedAccount.movements, !sortedState);
+  displayMovements(selectedAccount, !sortedState);
   sortedState = !sortedState;
+});
+
+btnAddAccount.addEventListener("click", function () {
+  document.querySelector(".add_acc_form").classList.toggle("hidden");
 });
 
 // LECTURES
